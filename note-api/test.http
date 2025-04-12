@@ -1,0 +1,36 @@
+@baseUrl = http://localhost:3000/notes
+
+### 1. GET semua note
+GET {{baseUrl}}
+
+### 2. POST note baru
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "judul": "Catatan Ketiga",
+  "isi": "Ini adalah catatan Ketiga saya",
+  "tanggal": "2025-04-16"
+}
+
+### 3. GET note by ID (replace :id with actual ID from POST response)
+GET {{baseUrl}}/1
+
+### 4. GET non-existent note (should return 404)
+GET {{baseUrl}}/999
+
+### 5. UPDATE note (replace :id)
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "judul": "Catatan Kedua (Edited)",
+  "isi": "Ini adalah catatan yang sudah diupdate",
+  "tanggal": "2025-04-17"
+}
+
+### 6. DELETE note (replace :id)
+DELETE {{baseUrl}}/1
+
+### 7. Verify deletion (should return 404)
+GET {{baseUrl}}/1
